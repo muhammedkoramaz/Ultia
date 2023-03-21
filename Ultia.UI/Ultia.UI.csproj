@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{440719FF-B7DC-4435-BA67-7665AA2BC692}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Ultia.UI</RootNamespace>
+    <AssemblyName>Ultia.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aksiyonlar\FrmTuket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aksiyonlar\FrmTuket.Designer.cs">
+      <DependentUpon>FrmTuket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAnasayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAnasayfa.Designer.cs">
+      <DependentUpon>FrmAnasayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aksiyonlar\FrmZimmetAta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aksiyonlar\FrmZimmetAta.Designer.cs">
+      <DependentUpon>FrmZimmetAta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGirisEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGirisEkrani.Designer.cs">
+      <DependentUpon>FrmGirisEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVarlikGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVarlikGuncelle.Designer.cs">
+      <DependentUpon>FrmVarlikGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FrmVarlikListe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVarlikListe.Designer.cs">
+      <DependentUpon>FrmVarlikListe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Raporlar\FrmRapor1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raporlar\FrmRapor1.Designer.cs">
+      <DependentUpon>FrmRapor1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporlar\FrmRapor2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raporlar\FrmRapor2.Designer.cs">
+      <DependentUpon>FrmRapor2.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Aksiyonlar\FrmTuket.resx">
+      <DependentUpon>FrmTuket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aksiyonlar\FrmZimmetAta.resx">
+      <DependentUpon>FrmZimmetAta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAnasayfa.resx">
+      <DependentUpon>FrmAnasayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGirisEkrani.resx">
+      <DependentUpon>FrmGirisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVarlikGuncelle.resx">
+      <DependentUpon>FrmVarlikGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVarlikListe.resx">
+      <DependentUpon>FrmVarlikListe.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Asset\add.png" />
+    <Content Include="Asset\eye %281%29.png" />
+    <Content Include="Asset\eye.png" />
+    <Content Include="Asset\icons8-add-new-50.png" />
+    <Content Include="Asset\icons8-calendar-50.png" />
+    <Content Include="Asset\icons8-wall-clock-48.png" />
+    <Content Include="Asset\icons8-zoom-64.png" />
+    <Content Include="Asset\icon_plus.png" />
+    <Content Include="Asset\ultialogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ultia.DAL\Ultia.DAL.csproj">
+      <Project>{0b588ffa-e31d-45f5-ae30-916980b14f79}</Project>
+      <Name>Ultia.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ultia.DTO\Ultia.DTO.csproj">
+      <Project>{60186a78-d10f-4f89-ba73-df8148acbdb5}</Project>
+      <Name>Ultia.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ultia.Provider\Ultia.Provider.csproj">
+      <Project>{27bfe59c-2f45-4155-9682-850c6a9c0c9d}</Project>
+      <Name>Ultia.Provider</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
