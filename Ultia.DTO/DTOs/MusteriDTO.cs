@@ -11,7 +11,5 @@ namespace Ultia.DTO.DTOs
         public int MusteriID { get; set; }
         public string MusteriAdSoyad { get; set; }
         public string MusteriTel { get; set; }
-        public bool? AktifMi { get; set; }
-
     }
 }

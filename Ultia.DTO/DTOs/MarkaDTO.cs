@@ -10,8 +10,6 @@ namespace Ultia.DTO.DTOs
     {
         public int MarkaID { get; set; }
         public string MarkaAdi { get; set; }
-        public bool? AktifMi { get; set; }
-
         public override string ToString()
         {
             return MarkaAdi;

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ultia.DTO.DTOs
 {
-    public interface UstDTO
+    public abstract class UstDTO
     {
-    bool? AktifMi { get; set; }
+    public bool AktifMi { get; set; } = true;
     }
 }

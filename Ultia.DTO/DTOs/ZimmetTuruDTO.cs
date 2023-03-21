@@ -10,7 +10,5 @@ namespace Ultia.DTO.DTOs
     {
         public int ZimmetTuruID { get; set; }
         public string ZimmetTuru { get; set; }
-        public bool? AktifMi { get; set; }
-
     }
 }

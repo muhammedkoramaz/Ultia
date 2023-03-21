@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ultia.DTO.DTOs
 {
-    public class SirketDTO:UstDTO
+    public class VarlikDurumuDTO:UstDTO
     {
-        public int SirketID { get; set; }
-        public string SirketAdi { get; set; }
-
+        public int VarlikDurumuID { get; set; }
+        public string VarlikDurumu { get; set; }
     }
 }

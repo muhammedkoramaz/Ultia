@@ -10,6 +10,9 @@ namespace Ultia.DTO.DTOs
     {
         public int ParaBirimiID { get; set; }
         public string ParaBirimi { get; set; }
-        public bool? AktifMi { get; set; }
+        public override string ToString()
+        {
+            return ParaBirimi;
+        }
     }
 }

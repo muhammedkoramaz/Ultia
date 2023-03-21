@@ -10,8 +10,6 @@ namespace Ultia.DTO.DTOs
     {
         public int UrunTipiID { get; set; }
         public string UrunTipiAdi { get; set; }
-        public bool? AktifMi { get; set; }
-
         public override string ToString()
         {
             return UrunTipiAdi;

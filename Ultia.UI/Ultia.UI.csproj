@@ -64,11 +64,23 @@
     <Compile Include="Aksiyonlar\FrmZimmetAta.Designer.cs">
       <DependentUpon>FrmZimmetAta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDuyurular.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDuyurular.Designer.cs">
+      <DependentUpon>FrmDuyurular.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGirisEkrani.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGirisEkrani.Designer.cs">
       <DependentUpon>FrmGirisEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSss.Designer.cs">
+      <DependentUpon>FrmSss.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmVarlikGuncelle.cs">
       <SubType>Form</SubType>
@@ -110,8 +122,14 @@
     <EmbeddedResource Include="FrmAnasayfa.resx">
       <DependentUpon>FrmAnasayfa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDuyurular.resx">
+      <DependentUpon>FrmDuyurular.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGirisEkrani.resx">
       <DependentUpon>FrmGirisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSss.resx">
+      <DependentUpon>FrmSss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVarlikGuncelle.resx">
       <DependentUpon>FrmVarlikGuncelle.cs</DependentUpon>

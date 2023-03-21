@@ -42,14 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\EkipZimmetDAL.cs" />
+    <Compile Include="DAL\FiyatDAL.cs" />
     <Compile Include="DAL\KullaniciDAL.cs" />
     <Compile Include="DAL\KullaniciZimmetDAL.cs" />
+    <Compile Include="DAL\MarkaDAL.cs" />
     <Compile Include="DAL\ModelDAL.cs" />
     <Compile Include="DAL\ParaBirimiDAL.cs" />
     <Compile Include="DAL\UrunTipiDAL.cs" />
     <Compile Include="DAL\VarlikDAL.cs" />
     <Compile Include="IRepositories\ISil.cs" />
     <Compile Include="IRepositories\IEkle.cs" />
+    <Compile Include="IRepositories\ITekVeriCek.cs" />
     <Compile Include="IRepositories\IVeriCek.cs" />
     <Compile Include="IRepositories\IGuncelle.cs" />
     <Compile Include="IRepositories\IVeriCekID.cs" />

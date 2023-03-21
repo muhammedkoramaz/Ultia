@@ -317,6 +317,7 @@
             this.cmbMarka.Name = "cmbMarka";
             this.cmbMarka.Size = new System.Drawing.Size(216, 21);
             this.cmbMarka.TabIndex = 9;
+            this.cmbMarka.SelectedIndexChanged += new System.EventHandler(this.cmbMarka_SelectedIndexChanged);
             // 
             // cmbUrunTipi
             // 

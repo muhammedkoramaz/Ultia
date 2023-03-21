@@ -15,7 +15,5 @@ namespace Ultia.DTO.DTOs
         public KullaniciDTO Yonetici { get; set; }
         public RolDTO Rol { get; set; }
         public EkipDTO Ekip { get; set; }
-        public bool? AktifMi { get; set; }
-
     }
 }

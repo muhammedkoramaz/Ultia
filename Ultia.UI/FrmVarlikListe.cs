@@ -18,8 +18,10 @@ namespace Ultia.UI
     {
         private KullaniciDTO kullanici;
         List<EkipZimmetDTO> ekipZimmetler;
-        List<VarlikDTO> kullaniciVarliklar;
         List<KullaniciZimmetDTO> kullaniciZimmetler;
+        KullaniciZimmetDTO secilenKullaniciZimmet;
+        List<VarlikDTO> varliklar;
+        VarlikDTO secilenVarlik;
         public FrmVarlikListe()
         {
             InitializeComponent();
@@ -36,13 +38,16 @@ namespace Ultia.UI
         }
 
 
+        private bool AdminRol()
+        {
+            return kullanici.Rol.RolAdi == "Poweruser";
 
+        }
         private void FrmVarlikListe_Load(object sender, EventArgs e)
         {
-            if (kullanici.Rol.RolAdi == "Poweruser" || kullanici.Rol.RolAdi == "Depo Admin")
-            {
+            if (AdminRol())
                 lblTumVarlik.Enabled = true;
-            }
+
         }
         /// <summary>
         /// Sadece giriş yapan kullanıcının zimmetli varlıkları gelecek. 
@@ -51,6 +56,7 @@ namespace Ultia.UI
         /// <param name="e"></param>
         private void lblVarliklarim_Click(object sender, EventArgs e)
         {
+            lvVarliklar.FullRowSelect = true;
             LabelRenkDegistir((Label)sender);
             KullaniciZimmetDAL kullaniciZimmetDAL = new KullaniciZimmetDAL();
             kullaniciZimmetler = kullaniciZimmetDAL.VeriCek(kullanici.KullaniciID); // TODO : Burada giriş yapan kullanıcının id'si gönderilecek. 
@@ -77,7 +83,7 @@ namespace Ultia.UI
         {
             LabelRenkDegistir((Label)sender);
             VarlikDAL varlikDAL = new VarlikDAL();
-            List<VarlikDTO> varliklar = varlikDAL.VeriCek();
+            varliklar = varlikDAL.VeriCek();
             lvVarliklar.Items.Clear();
             foreach (VarlikDTO varlik in varliklar)
             {
@@ -136,26 +142,40 @@ namespace Ultia.UI
                 }
             }
         }
-        VarlikDTO varlik;
         private void lvVarliklar_SelectedIndexChanged(object sender, EventArgs e)
         {
             //SelectedItems[0] yani seçtiğimiz itemsin indeksini bize döndürür. Bir adet değer seçtiğimizden dolayı 0 veririz.
             //SubItems ise bize hangi sütunu seçtiğimizi belirtir. 1 ile adı soyadı bilgisini geri döndürür.
-            string kullaniciZimmetID = lvVarliklar.SelectedItems[0].SubItems[0].Text.ToString();
-            foreach (KullaniciZimmetDTO kullaniciZimmet in kullaniciZimmetler)
-            {
-                if (kullaniciZimmet.KullaniciZimmetID == int.Parse(kullaniciZimmetID))
-                {
-                    varlik = kullaniciZimmet.Zimmet.Varlik;
-                    //VarlikDTO varlik = new VarlikDTO()
-                    //                    {
-                    //                        int VarlikID = ekipZimmet.Zimmet.Varlik.VarlikID,
+            string secilenID = lvVarliklar.SelectedItems[0].SubItems[0].Text.ToString();
 
-                    //                    };
+            if (!AdminRol())
+            {
+                foreach (KullaniciZimmetDTO kullaniciZimmet in kullaniciZimmetler)
+                {
+                    if (kullaniciZimmet.KullaniciZimmetID == int.Parse(secilenID))
+                    {
+                        secilenKullaniciZimmet = kullaniciZimmet;
+                    }
                 }
+                FrmVarlikGuncelle frmVarlikGuncelle = new FrmVarlikGuncelle(secilenKullaniciZimmet);
+                frmVarlikGuncelle.Show();
+                this.Tag = secilenKullaniciZimmet.Zimmet.Varlik;
             }
-            FrmVarlikGuncelle frmVarlikGuncelle = new FrmVarlikGuncelle(varlik);
-            frmVarlikGuncelle.Show();
+            else
+            {
+
+                foreach (VarlikDTO varlik in varliklar)
+                {
+                    if (varlik.VarlikID == int.Parse(secilenID))
+                    {
+                        secilenVarlik = varlik;
+                    }
+
+                }
+                FrmVarlikGuncelle frmVarlikGuncelle = new FrmVarlikGuncelle(secilenVarlik);
+                frmVarlikGuncelle.Show();
+                this.Tag = secilenVarlik;
+            }
         }
     }
 }

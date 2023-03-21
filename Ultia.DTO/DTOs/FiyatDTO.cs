@@ -13,7 +13,5 @@ namespace Ultia.DTO.DTOs
         public decimal ParaMiktari { get; set; }
         public DateTime GuncellemeTarihi { get; set; }
         public ParaBirimiDTO ParaBirimi { get; set; }
-        public bool? AktifMi { get; set; }
-
     }
 }

@@ -10,6 +10,7 @@ namespace Ultia.DTO.DTOs
     {
         public int VarlikID { get; set; }
         public Guid? Barkod { get; set; }
+        public VarlikDurumuDTO VarlikDurumu { get; set; }
         public UrunTipiDTO UrunTipi { get; set; }
         public ModelDTO Model { get; set; }
         public bool? GarantiliMi { get; set; }

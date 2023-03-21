@@ -12,6 +12,5 @@ namespace Ultia.DTO.DTOs
         public VarlikDTO Varlik { get; set; }
         public DepoDTO Depo { get; set; }
         public string Aciklama { get; set; }
-        public bool? AktifMi { get; set; }
     }
 }

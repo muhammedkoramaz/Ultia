@@ -10,7 +10,6 @@ namespace Ultia.DTO.DTOs
     {
         public int RolID { get; set; }
         public string RolAdi { get; set; }
-        public bool? AktifMi { get; set; }
 
     }
 }

@@ -10,20 +10,20 @@ using Ultia.DTO.DTOs;
 
 namespace Ultia.DAL.DAL
 {
-    public class ModelDAL : IVeriCek<ModelDTO>
+    public class ModelDAL : IVeriCekID<ModelDTO>
     {
-        List<ModelDTO> modelList;
-        public List<ModelDTO> VeriCek()
+        List<ModelDTO> modelListe;
+        public List<ModelDTO> VeriCek(int id)
         {
-            string sorgu = $"select model.ModelID,model.ModelAd,marka.MarkaID, marka.MarkaAdi from Model model join Marka marka on marka.MarkaID=model.MarkaID where model.AktifMi='true' and marka.AktifMi = 'true'";
+            string sorgu = $"select model.ModelID,model.ModelAd,marka.MarkaID, marka.MarkaAdi from Model model join Marka marka on marka.MarkaID=model.MarkaID where model.AktifMi='true' and marka.AktifMi = 'true' and model.MarkaID = {id}";
             SqlProvider provider = new SqlProvider(sorgu);
             SqlDataReader veriOkuyucu = provider.ExecuteReaderOlustur();
             if (veriOkuyucu.HasRows)
             {
-                modelList = new List<ModelDTO>();
+                modelListe = new List<ModelDTO>();
                 while (veriOkuyucu.Read())
                 {
-                    modelList.Add(new ModelDTO()
+                    modelListe.Add(new ModelDTO()
                     {
                         ModelID = veriOkuyucu.GetInt32(0),
                         ModelAdi = veriOkuyucu.GetString(1),
@@ -34,7 +34,7 @@ namespace Ultia.DAL.DAL
                         }
                     });
                 }
-                return modelList;
+                return modelListe;
             }
             else
             {

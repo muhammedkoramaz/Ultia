@@ -15,7 +15,6 @@ namespace Ultia.DTO.DTOs
         public DateTime BaslangicTarihi { get; set; }
         public DateTime BitisTarihi { get; set; }
         public string Aciklama { get; set; }
-        public bool? AktifMi { get; set; }
         public DateTime OlusturmaTarihi { get; set; }
         public DateTime DuzenlemeTarihi { get; set; }
 

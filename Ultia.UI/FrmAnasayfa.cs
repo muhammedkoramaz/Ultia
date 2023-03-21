@@ -13,6 +13,7 @@ namespace Ultia.UI
 {
     public partial class FrmAnasayfa : Form
     {
+        private Form aktifForm;
         public FrmAnasayfa()
         {
             InitializeComponent();
@@ -25,8 +26,54 @@ namespace Ultia.UI
 
         private void btnDepo_Click(object sender, EventArgs e)
         {
-            FrmVarlikListe frmVarlikListe = new FrmVarlikListe(lblKullanici.Tag as KullaniciDTO);
-            frmVarlikListe.Show();
+            PanelFormAc(new FrmVarlikListe(lblKullanici.Tag as KullaniciDTO));
+            //FrmVarlikListe frmVarlikListe = new FrmVarlikListe(lblKullanici.Tag as KullaniciDTO);
+            //frmVarlikListe.Show();
         }
+
+        /// <summary>
+        /// Ekran ortasındaki panelde ekranlar açma fonksiyonu.
+        /// </summary>
+        public void PanelFormAc(Form form)
+        {
+            if (aktifForm != null)
+            {
+                aktifForm.Close();
+            }
+            aktifForm = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            this.panelForm.Controls.Add(form);
+            this.panelForm.Tag = form;
+            form.BringToFront();
+            form.Show();
+        }
+
+        private void btnSss_Click(object sender, EventArgs e)
+        {
+            PanelFormAc(new FrmSss());
+
+        }
+
+        private void btnDuyuru_Click(object sender, EventArgs e)
+        {
+            PanelFormAc(new FrmDuyurular());
+        }
+        //public static void PanelFormAc(Form form, Panel panel)
+        //{
+        //    if (panel.Controls.Count > 0)
+        //    {
+        //        panel.Controls.RemoveAt(0);
+        //    }
+        //    form.TopLevel = false;
+        //    form.FormBorderStyle = FormBorderStyle.None;
+        //    form.Dock = DockStyle.Fill;
+        //    panel.Controls.Add(form);
+        //    panel.Tag = form;
+        //    form.BringToFront();
+        //    form.Show();
+        //}
+
     }
 }

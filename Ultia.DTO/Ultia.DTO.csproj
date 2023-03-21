@@ -60,6 +60,7 @@
     <Compile Include="DTOs\UstDTO.cs" />
     <Compile Include="DTOs\VarlikDepoDTO.cs" />
     <Compile Include="DTOs\VarlikDTO.cs" />
+    <Compile Include="DTOs\VarlikDurumuDTO.cs" />
     <Compile Include="DTOs\ZimmetDTO.cs" />
     <Compile Include="DTOs\ZimmetNedeniDTO.cs" />
     <Compile Include="DTOs\ZimmetTuruDTO.cs" />

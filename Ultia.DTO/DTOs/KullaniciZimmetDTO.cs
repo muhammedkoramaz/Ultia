@@ -11,7 +11,5 @@ namespace Ultia.DTO.DTOs
         public int KullaniciZimmetID { get; set; }
         public KullaniciDTO Kullanici { get; set; }
         public ZimmetDTO Zimmet { get; set; }
-        public bool? AktifMi { get; set; }
-
     }
 }

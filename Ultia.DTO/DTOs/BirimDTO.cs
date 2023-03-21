@@ -8,8 +8,7 @@ namespace Ultia.DTO.DTOs
 {
     public class BirimDTO: UstDTO
     {
-        public int BirimID { get; set; }
-        public string BirimAdi { get; set; }
-        public bool? AktifMi { get; set; }
+        public int? BirimID { get; set; }
+        public string BirimAdi { get; set; } = string.Empty;
     }
 }

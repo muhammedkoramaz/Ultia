@@ -11,8 +11,6 @@ namespace Ultia.DTO.DTOs
         public int EkipID { get; set; }
         public string EkipAdi { get; set; }
         public SirketDTO Sirket { get; set; }
-        public bool? AktifMi { get; set; }
-
     }
 
 }
