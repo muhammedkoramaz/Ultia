@@ -16,7 +16,7 @@ namespace Ultia.DAL.DAL
 
         public List<EkipZimmetDTO> VeriCek(int id)
         {
-            string sorgu = $"select ez.EkipZimmetID as [Kayıt Numarası], v.Barkod, ut.UrunTipi as [Ürün Tipi], fy.ParaMiktari as Fiyat, marka.MarkaAdi as Marka , Model.ModelAd as Model , v.VarlikID from  EkipZimmet ez join Ekip e on ez.EkipID = e.EkipID join Zimmet z on ez.ZimmetID = z.ZimmetID join VarlikDepo vd on z.VarlikDepoID = vd.VarlikDepoID join Varlik v on vd.VarlikID = v.VarlikID join UrunTipi ut on v.UrunTipiID = ut.UrunTipiID join Fiyat fy on fy.VarlikID = v.VarlikID join Model model on v.ModelID = model.ModelID join Marka marka on model.MarkaID = marka.MarkaID where ez.EkipID = {id} and ez.AktifMi = 'True'";
+            string sorgu = $"select ez.EkipZimmetID as [Kayıt Numarası], v.Barkod, ut.UrunTipi as [Ürün Tipi], fy.ParaMiktari as Fiyat, marka.MarkaAdi as Marka , Model.ModelAd as Model , v.VarlikID from  EkipZimmet ez join Ekip e on ez.EkipID = e.EkipID join Zimmet z on ez.ZimmetID = z.ZimmetID join VarlikDepo vd on z.VarlikDepoID = vd.VarlikDepoID join Varlik v on vd.VarlikID = v.VarlikID join UrunTipi ut on v.UrunTipiID = ut.UrunTipiID join Fiyat fy on fy.VarlikID = v.VarlikID join Model model on v.ModelID = model.ModelID join Marka marka on model.MarkaID = marka.MarkaID where ez.EkipID = {id} and ez.AktifMi = 'True' and fy.AktifMi = 'True'";
             SqlProvider provider = new SqlProvider(sorgu);
             SqlDataReader dataReader = provider.ExecuteReaderOlustur();
             if (dataReader.HasRows)

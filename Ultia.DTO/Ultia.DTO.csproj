@@ -44,6 +44,7 @@
     <Compile Include="DonenSonuc.cs" />
     <Compile Include="DTOs\BirimDTO.cs" />
     <Compile Include="DTOs\DepoDTO.cs" />
+    <Compile Include="DTOs\DuyurularDTO.cs" />
     <Compile Include="DTOs\EkipDTO.cs" />
     <Compile Include="DTOs\EkipZimmetDTO.cs" />
     <Compile Include="DTOs\FiyatDTO.cs" />

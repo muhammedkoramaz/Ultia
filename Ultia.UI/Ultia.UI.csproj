@@ -142,6 +142,9 @@
     <EmbeddedResource Include="FrmVarlikListe.resx">
       <DependentUpon>FrmVarlikListe.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,6 +160,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Asset\add.png" />
+    <None Include="Asset\user.png" />
+    <None Include="Asset\bg.png" />
+    <Content Include="Asset\duyuru.PNG" />
+    <Content Include="Asset\Ekran Alıntısı.PNG" />
+    <Content Include="Asset\ekran2.PNG" />
+    <Content Include="Asset\ekran3.PNG" />
     <Content Include="Asset\eye %281%29.png" />
     <Content Include="Asset\eye.png" />
     <Content Include="Asset\icons8-add-new-50.png" />
@@ -164,6 +173,7 @@
     <Content Include="Asset\icons8-wall-clock-48.png" />
     <Content Include="Asset\icons8-zoom-64.png" />
     <Content Include="Asset\icon_plus.png" />
+    <Content Include="Asset\sss.PNG" />
     <Content Include="Asset\ultialogo.png" />
   </ItemGroup>
   <ItemGroup>

@@ -30,10 +30,10 @@
         {
             this.btnDosyaEkle = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.cmbGaranti = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAciklama = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtAboneNo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnDosyaEkle
@@ -44,6 +44,7 @@
             this.btnDosyaEkle.TabIndex = 20;
             this.btnDosyaEkle.Text = "> Tüket";
             this.btnDosyaEkle.UseVisualStyleBackColor = true;
+            this.btnDosyaEkle.Click += new System.EventHandler(this.btnDosyaEkle_Click);
             // 
             // label6
             // 
@@ -53,14 +54,6 @@
             this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 19;
             this.label6.Text = "Açıklama";
-            // 
-            // cmbGaranti
-            // 
-            this.cmbGaranti.FormattingEnabled = true;
-            this.cmbGaranti.Location = new System.Drawing.Point(48, 108);
-            this.cmbGaranti.Name = "cmbGaranti";
-            this.cmbGaranti.Size = new System.Drawing.Size(216, 21);
-            this.cmbGaranti.TabIndex = 18;
             // 
             // label5
             // 
@@ -88,19 +81,27 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Tüket";
             // 
+            // txtAboneNo
+            // 
+            this.txtAboneNo.Location = new System.Drawing.Point(47, 111);
+            this.txtAboneNo.Name = "txtAboneNo";
+            this.txtAboneNo.Size = new System.Drawing.Size(217, 20);
+            this.txtAboneNo.TabIndex = 22;
+            // 
             // FrmTuket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(351, 350);
+            this.Controls.Add(this.txtAboneNo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDosyaEkle);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.cmbGaranti);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtAciklama);
             this.Name = "FrmTuket";
             this.Text = "FrmTuket";
+            this.Load += new System.EventHandler(this.FrmTuket_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,9 +111,9 @@
 
         private System.Windows.Forms.Button btnDosyaEkle;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbGaranti;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtAciklama;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtAboneNo;
     }
 }

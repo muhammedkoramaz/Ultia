@@ -6,14 +6,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ultia.DAL.IRepositories;
+using Ultia.DTO;
 using Ultia.DTO.DTOs;
 
 namespace Ultia.DAL.DAL
 {
 
-    public class FiyatDAL : IVeriCek<FiyatDTO>
+    public class FiyatDAL : IVeriCek<FiyatDTO>,IEkle<FiyatDTO>
     {
         List<FiyatDTO> fiyatListe;
+
+        public DonenSonuc Ekle(FiyatDTO eklenecekVeri)
+        {
+            string sorgu = "insert into Fiyat  (VarlikID,ParaMiktari,GuncellemeTarihi,ParaBirimiID) values(@VarlikID, @ParaMiktari ,@GuncellemeTarihi,@ParaBirimiID)";
+            SqlProvider provider = new SqlProvider(sorgu);
+            SqlParameter[] sqlParameters = new SqlParameter[4];
+
+            sqlParameters[0] = new SqlParameter("@VarlikID", eklenecekVeri.Varlik.VarlikID);
+            sqlParameters[1] = new SqlParameter("@ParaMiktari", eklenecekVeri.ParaMiktari);
+            sqlParameters[2] = new SqlParameter("@GuncellemeTarihi", eklenecekVeri.GuncellemeTarihi);
+            sqlParameters[3] = new SqlParameter("@ParaBirimiID", eklenecekVeri.ParaBirimi.ParaBirimiID);
+
+            provider.ParametreEkle(sqlParameters);
+
+            int etkilenenSatirSayisi = provider.ExecuteNonQueryOlustur();
+            return new DonenSonuc()
+            {
+                Sonuc = etkilenenSatirSayisi,
+                DonusMesaji = etkilenenSatirSayisi > 0 ? "Fiyat Başarıyla Eklendi." : "Fiyat Eklenirken Hata Oluştu.",
+                DonusTipi = etkilenenSatirSayisi > 0,
+            };
+        }
+
         public List<FiyatDTO> VeriCek()
         {
 

@@ -17,26 +17,46 @@ namespace AdoSample.Provider
     {
         public readonly SqlConnection conn;
         public readonly SqlCommand cmd;
+        public SqlCommand[] sqlCommands = new SqlCommand[2];
 
+        /// <summary>
+        /// Bir komut alan constructor.
+        /// </summary>
+        /// <param name="YapilamakIstenenQuery"></param>
+        /// <param name="ConnectionText"></param>
         public SqlProvider(string YapilamakIstenenQuery, string ConnectionText = "server=.;Database=Ultia;uid=sa;pwd=123")// todo appconfigden çekilecek 
         {
             conn = new SqlConnection(ConnectionText);
             cmd = new SqlCommand(YapilamakIstenenQuery, conn);
         }
-        public SqlCommand CommandGetir()
+
+        /// <summary>
+        /// Transaction için iki komut gönderilen constructor.
+        /// </summary>
+        /// <param name="YapilamakIstenenBirinciQuery"></param>
+        /// <param name="YapilamakIstenenIkinciQuery"></param>
+        /// <param name="ConnectionText"></param>
+        public SqlProvider(string YapilamakIstenenBirinciQuery, string YapilamakIstenenIkinciQuery, string ConnectionText = "server=.;Database=Ultia;uid=sa;pwd=123")
         {
-            return cmd;
+            conn = new SqlConnection(ConnectionText);
+            sqlCommands[0] = new SqlCommand(YapilamakIstenenBirinciQuery, conn);
+            sqlCommands[1] = new SqlCommand(YapilamakIstenenIkinciQuery, conn);
         }
 
+        /// <summary>
+        /// Sql bağlantısını açma fonksiyonu.
+        /// </summary>
         void Ac()
         {
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
-
             }
-
         }
+
+        /// <summary>
+        /// Sql bağlantısını kapatma fonksiyonu.
+        /// </summary>
         void Kapat()
         {
             if (conn.State == ConnectionState.Open)
@@ -45,13 +65,16 @@ namespace AdoSample.Provider
 
             }
         }
+        /// <summary>
+        /// ExecuteNonQuery oluşturma fonksiyonu.
+        /// </summary>
+        /// <returns></returns>
         public int ExecuteNonQueryOlustur()
         {
             int result = 0;
 
             try
             {
-
                 Ac();
                 result = cmd.ExecuteNonQuery();
 
@@ -67,10 +90,12 @@ namespace AdoSample.Provider
             }
 
             return result;
-
-
         }
 
+        /// <summary>
+        /// Executedatareader oluşturma fonksiyonu.
+        /// </summary>
+        /// <returns></returns>
         public SqlDataReader ExecuteReaderOlustur()
         {
             SqlDataReader rdr = null;
@@ -86,6 +111,10 @@ namespace AdoSample.Provider
 
             return rdr;
         }
+        /// <summary>
+        /// Executescalar oluşturma fonksiyonu.
+        /// </summary>
+        /// <returns></returns>
         public object ExecuteScalarOlustur()
         {
             object result = null;
@@ -103,31 +132,43 @@ namespace AdoSample.Provider
             }
             return result;
         }
-
+        /// <summary>
+        /// Parametre ekleme fonksiyonu.
+        /// </summary>
+        /// <param name="sqlParameters"></param>
         public void ParametreEkle(SqlParameter[] sqlParameters)
         {
-            //foreach (SqlParameter item in sqlParameters)
-            //{
-            //    cmd.Parameters.Add(item);
-            //}
-            cmd.Parameters.AddRange(sqlParameters);
+            if (cmd != null)
+            {
+                cmd.Parameters.AddRange(sqlParameters);
+            }
+            else
+            {
+                foreach (SqlCommand sqlCommand in sqlCommands)
+                {
+                    sqlCommand.Parameters.AddRange(sqlParameters);
+                }
+            }
         }
-
-        //öyle bir metod yazılmalı ki transaction yapacak.
-        public void TransactionFoksiyonu(SqlCommand[] cmdArray)
+        /// <summary>
+        /// Gelen komut listesine göre transaction yapan fonksiyon.
+        /// </summary>
+        public void TransactionFoksiyonu()
         {
-            SqlTransaction transaction = null;
 
+            Ac();
+
+            SqlTransaction transaction = conn.BeginTransaction(); ;
+            foreach (SqlCommand command in sqlCommands)
+            {
+
+                command.Transaction = transaction;
+            }
             try
             {
-                Ac();
-                transaction = conn.BeginTransaction();
-                foreach (SqlCommand command in cmdArray)
+
+                foreach (SqlCommand command in sqlCommands)
                 {
-                    Console.WriteLine("transacion girdi");
-                    Console.WriteLine(command);
-                    command.Connection = conn;
-                    command.Transaction = transaction;
                     command.ExecuteNonQuery();
                 }
                 transaction.Commit();

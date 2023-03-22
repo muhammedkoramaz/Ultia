@@ -39,6 +39,7 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnGuncelle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTumVarlik
@@ -46,7 +47,8 @@
             this.lblTumVarlik.AutoSize = true;
             this.lblTumVarlik.Enabled = false;
             this.lblTumVarlik.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblTumVarlik.Location = new System.Drawing.Point(386, 43);
+            this.lblTumVarlik.Location = new System.Drawing.Point(618, 63);
+            this.lblTumVarlik.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTumVarlik.Name = "lblTumVarlik";
             this.lblTumVarlik.Size = new System.Drawing.Size(113, 20);
             this.lblTumVarlik.TabIndex = 1;
@@ -56,9 +58,10 @@
             // lblEkipVarlik
             // 
             this.lblEkipVarlik.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblEkipVarlik.Location = new System.Drawing.Point(180, 43);
+            this.lblEkipVarlik.Location = new System.Drawing.Point(343, 63);
+            this.lblEkipVarlik.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEkipVarlik.Name = "lblEkipVarlik";
-            this.lblEkipVarlik.Size = new System.Drawing.Size(171, 20);
+            this.lblEkipVarlik.Size = new System.Drawing.Size(228, 20);
             this.lblEkipVarlik.TabIndex = 2;
             this.lblEkipVarlik.Text = "Ekibimin Varlıkları";
             this.lblEkipVarlik.Click += new System.EventHandler(this.lblEkipVarlik_Click);
@@ -67,7 +70,8 @@
             // 
             this.lblVarliklarim.AutoSize = true;
             this.lblVarliklarim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblVarliklarim.Location = new System.Drawing.Point(61, 43);
+            this.lblVarliklarim.Location = new System.Drawing.Point(184, 63);
+            this.lblVarliklarim.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVarliklarim.Name = "lblVarliklarim";
             this.lblVarliklarim.Size = new System.Drawing.Size(92, 20);
             this.lblVarliklarim.TabIndex = 3;
@@ -79,12 +83,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(532, 43);
+            this.label1.Location = new System.Drawing.Point(812, 63);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Alarm";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lvVarliklar
             // 
@@ -98,9 +102,10 @@
             this.lvVarliklar.FullRowSelect = true;
             this.lvVarliklar.GridLines = true;
             this.lvVarliklar.HideSelection = false;
-            this.lvVarliklar.Location = new System.Drawing.Point(12, 94);
+            this.lvVarliklar.Location = new System.Drawing.Point(119, 114);
+            this.lvVarliklar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lvVarliklar.Name = "lvVarliklar";
-            this.lvVarliklar.Size = new System.Drawing.Size(776, 344);
+            this.lvVarliklar.Size = new System.Drawing.Size(1033, 344);
             this.lvVarliklar.TabIndex = 5;
             this.lvVarliklar.UseCompatibleStateImageBehavior = false;
             this.lvVarliklar.View = System.Windows.Forms.View.Details;
@@ -109,45 +114,61 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Kayıt Numarası";
-            this.columnHeader1.Width = 106;
+            this.columnHeader1.Width = 120;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Barkod";
-            this.columnHeader2.Width = 192;
+            this.columnHeader2.Width = 250;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Ürün Tipi";
-            this.columnHeader3.Width = 91;
+            this.columnHeader3.Width = 225;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Ürünün Güncel Fiyatı";
-            this.columnHeader4.Width = 131;
+            this.columnHeader4.Width = 150;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Markası";
-            this.columnHeader5.Width = 94;
+            this.columnHeader5.Width = 140;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Modeli";
-            this.columnHeader6.Width = 118;
+            this.columnHeader6.Width = 140;
+            // 
+            // btnGuncelle
+            // 
+            this.btnGuncelle.Enabled = false;
+            this.btnGuncelle.Location = new System.Drawing.Point(992, 465);
+            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnGuncelle.Name = "btnGuncelle";
+            this.btnGuncelle.Size = new System.Drawing.Size(161, 34);
+            this.btnGuncelle.TabIndex = 6;
+            this.btnGuncelle.Text = "Guncelle";
+            this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // FrmVarlikListe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
+            this.ClientSize = new System.Drawing.Size(1300, 589);
+            this.Controls.Add(this.btnGuncelle);
             this.Controls.Add(this.lvVarliklar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblVarliklarim);
             this.Controls.Add(this.lblEkipVarlik);
             this.Controls.Add(this.lblTumVarlik);
+            this.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FrmVarlikListe";
-            this.Text = "VarlikListe";
+            this.Text = "Varlık Listesi";
             this.Load += new System.EventHandler(this.FrmVarlikListe_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,5 +187,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Button btnGuncelle;
     }
 }
