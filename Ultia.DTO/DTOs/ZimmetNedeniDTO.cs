@@ -10,5 +10,9 @@ namespace Ultia.DTO.DTOs
     {
         public int ZimmetNedeniID { get; set; }
         public string ZimmetNedeni { get; set; }
+        public override string ToString()
+        {
+            return ZimmetNedeni;
+        }
     }
 }

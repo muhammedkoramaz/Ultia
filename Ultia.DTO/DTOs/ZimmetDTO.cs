@@ -10,6 +10,7 @@ namespace Ultia.DTO.DTOs
     {
         public int ZimmetID { get; set; }
         public VarlikDTO Varlik { get; set; }
+        public VarlikDepoDTO VarlikDepo { get; set; }
         public ZimmetNedeniDTO ZimmetNedeni { get; set; }
         public ZimmetTuruDTO ZimmetTuru { get; set; }
         public DateTime BaslangicTarihi { get; set; }
@@ -17,6 +18,7 @@ namespace Ultia.DTO.DTOs
         public string Aciklama { get; set; }
         public DateTime OlusturmaTarihi { get; set; }
         public DateTime DuzenlemeTarihi { get; set; }
+        public int? OlusturanKisiID { get; set; }
 
     }
 }

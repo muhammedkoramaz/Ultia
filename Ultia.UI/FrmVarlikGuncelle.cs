@@ -212,7 +212,7 @@ namespace Ultia.UI
                     frmTuket.Show();
                     break;
                 case "Zimmet Ata":
-                    FrmZimmetAta frmZimmetAta = new FrmZimmetAta();
+                    FrmZimmetAta frmZimmetAta = new FrmZimmetAta(varlik);
                     frmZimmetAta.Show();
                     break;
                 default:

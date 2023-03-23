@@ -61,6 +61,7 @@
             this.btnZimmetAta.TabIndex = 26;
             this.btnZimmetAta.Text = "> Zimmet Ata";
             this.btnZimmetAta.UseVisualStyleBackColor = true;
+            this.btnZimmetAta.Click += new System.EventHandler(this.btnZimmetAta_Click);
             // 
             // label6
             // 
@@ -120,6 +121,7 @@
             this.cmbZimmetTuru.Name = "cmbZimmetTuru";
             this.cmbZimmetTuru.Size = new System.Drawing.Size(216, 21);
             this.cmbZimmetTuru.TabIndex = 33;
+            this.cmbZimmetTuru.SelectedIndexChanged += new System.EventHandler(this.cmbZimmetTuru_SelectedIndexChanged);
             // 
             // label4
             // 

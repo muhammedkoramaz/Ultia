@@ -68,12 +68,12 @@
             // 
             this.lblKullanici.AutoSize = true;
             this.lblKullanici.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblKullanici.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblKullanici.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblKullanici.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(83)))), ((int)(((byte)(201)))));
-            this.lblKullanici.Location = new System.Drawing.Point(1148, 38);
+            this.lblKullanici.Location = new System.Drawing.Point(1096, 42);
             this.lblKullanici.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKullanici.Name = "lblKullanici";
-            this.lblKullanici.Size = new System.Drawing.Size(131, 20);
+            this.lblKullanici.Size = new System.Drawing.Size(163, 26);
             this.lblKullanici.TabIndex = 2;
             this.lblKullanici.Text = "Kullanıcının İsmi";
             // 

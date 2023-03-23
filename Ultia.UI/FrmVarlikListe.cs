@@ -32,8 +32,6 @@ namespace Ultia.UI
             this.kullanici = kullaniciDTO;
         }
 
-
-
         private bool AdminRol()
         {
             return kullanici.Rol.RolAdi == "Poweruser";
@@ -116,7 +114,7 @@ namespace Ultia.UI
             lvVarliklar.FullRowSelect = false;
             LabelRenkDegistir((Label)sender);
             EkipZimmetDAL ekipZimmetDAL = new EkipZimmetDAL();
-            ekipZimmetler = ekipZimmetDAL.VeriCek(kullanici.Ekip.EkipID); // TODO : Burada giriş yapan kullanıcının id'si gönderilecek. 
+            ekipZimmetler = ekipZimmetDAL.VeriCek(kullanici.Ekip.EkipID);
             lvVarliklar.Items.Clear();
             foreach (EkipZimmetDTO ekipZimmet in ekipZimmetler)
             {
@@ -137,15 +135,15 @@ namespace Ultia.UI
         /// <param name="label"></param>
         public void LabelRenkDegistir(Label label)
         {
-            foreach (Control c in Controls)
+            foreach (Control control in Controls)
             {
-                if (c is Label && ((Label)c).Text == label.Text)
+                if (control is Label && ((Label)control).Text == label.Text)
                 {
-                    ((Label)c).ForeColor = Color.Aqua;
+                    ((Label)control).ForeColor = Color.Aqua;
                 }
-                else if (c is Label)
+                else if (control is Label)
                 {
-                    ((Label)c).ForeColor = Color.Black;
+                    ((Label)control).ForeColor = Color.Black;
                 }
             }
         }

@@ -12,8 +12,9 @@ using Ultia.DTO.DTOs;
 
 namespace Ultia.DAL.DAL
 {
-    public class KullaniciDAL : IVeriCekKullanici<KullaniciDTO>
+    public class KullaniciDAL : IVeriCekKullanici<KullaniciDTO>,IVeriCek<KullaniciDTO>
     {
+        List<KullaniciDTO> kullaniciListe;  
         /// <summary>
         /// Giriş yapacak kullanıcının bilgileri veritabanındaki kullanıcılar ile karşılaştırtılıyor ve eğer var ise kullanıcı classı dolduruluyor. Yok ise null dönüyor.
         /// </summary>
@@ -42,6 +43,34 @@ namespace Ultia.DAL.DAL
                     };
                 }
                 return kullanici;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public List<KullaniciDTO> VeriCek()
+        {
+            string sorgu = $"select KullaniciID,KullaniciAdi,AdSoyad,Email,RoleID,EkipID from Kullanici where AktifMi = 'true'\r\n";
+            SqlProvider provider = new SqlProvider(sorgu);
+            SqlDataReader veriOkuyucu = provider.ExecuteReaderOlustur();
+            if (veriOkuyucu.HasRows)
+            {
+                kullaniciListe = new List<KullaniciDTO>();
+                while (veriOkuyucu.Read())
+                {
+                    kullaniciListe.Add(new KullaniciDTO()
+                    {
+                        KullaniciID = veriOkuyucu.GetInt32(0),
+                        KullaniciAdi = veriOkuyucu.GetString(1),
+                        AdSoyad = veriOkuyucu.GetString(2),
+                        Email = veriOkuyucu.GetString(3),
+                        Rol = new RolDTO() { RolID = veriOkuyucu.GetInt32(4),},
+                        Ekip = new EkipDTO() { EkipID= veriOkuyucu.GetInt32(5)},
+                    });
+                }
+                return kullaniciListe;
             }
             else
             {

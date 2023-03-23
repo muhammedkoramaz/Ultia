@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\BirimDAL.cs" />
+    <Compile Include="DAL\EkipDAL.cs" />
     <Compile Include="DAL\EkipZimmetDAL.cs" />
     <Compile Include="DAL\FiyatDAL.cs" />
     <Compile Include="DAL\KullaniciDAL.cs" />
@@ -52,6 +53,10 @@
     <Compile Include="DAL\ParaBirimiDAL.cs" />
     <Compile Include="DAL\UrunTipiDAL.cs" />
     <Compile Include="DAL\VarlikDAL.cs" />
+    <Compile Include="DAL\VarlikDepoDAL.cs" />
+    <Compile Include="DAL\ZimmetDAL.cs" />
+    <Compile Include="DAL\ZimmetNedeniDAL.cs" />
+    <Compile Include="DAL\ZimmetTuruDAL.cs" />
     <Compile Include="IRepositories\ISil.cs" />
     <Compile Include="IRepositories\IEkle.cs" />
     <Compile Include="IRepositories\ITekVeriCek.cs" />

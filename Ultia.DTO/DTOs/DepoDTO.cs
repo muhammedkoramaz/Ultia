@@ -12,7 +12,5 @@ namespace Ultia.DTO
         public int DepoID { get; set; }
         public string DepoAdi { get; set; }
         public SirketDTO Sirket { get; set; }
-        public bool? AktifMi { get; set; }
-
     }
 }

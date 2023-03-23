@@ -21,10 +21,6 @@ namespace Ultia.DTO.DTOs
         public ParaBirimiDTO UrunParaBirimi { get; set; }
         public string Aciklama { get; set; }
         public string DosyaYolu { get; set; }
-        public bool? AktifMi { get; set; }
-        //public KullaniciDTO OlusturanKisi { get; set; }
-        //public KullaniciDTO GuncelleyenKisi { get; set; }
-        //public DateTime GuncellemeTarihi { get; set; }
         public BirimDTO Birim { get; set; } = null;
         public int? Miktar { get; set; }
 
