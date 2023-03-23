@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ultia.DTO.DTOs
+﻿namespace Ultia.DTO.DTOs
 {
-    public class MarkaDTO:UstDTO
+    public class MarkaDTO : UstDTO
     {
         public int MarkaID { get; set; }
         public string MarkaAdi { get; set; }

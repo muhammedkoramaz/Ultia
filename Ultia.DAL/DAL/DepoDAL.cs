@@ -2,34 +2,36 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using Ultia.DAL.IRepositories;
+using Ultia.DTO;
 using Ultia.DTO.DTOs;
 
 namespace Ultia.DAL.DAL
 {
-    public class ZimmetTuruDAL : IVeriCek<ZimmetTuruDTO>
+    public class DepoDAL : IVeriCek<DepoDTO>
     {
-        List<ZimmetTuruDTO> zimmetTuruListe;
+        List<DepoDTO> depoListe;
         /// <summary>
-        /// Veritabanından ZimmetTürü tablosunu çeken fonksiyon.
+        /// Veritabanından depo tablosunu çeken fonksiyon.
         /// </summary>
         /// <returns></returns>
-        public List<ZimmetTuruDTO> VeriCek()
+        public List<DepoDTO> VeriCek()
         {
-            string sorgu = "select ZimmetTuruID,ZimmetTuru from ZimmetTuru where AktifMi = 'true'";
+            string sorgu = $"select DepoID,DepoAdi,SirketID from Depo where AktifMi = 'true'";
             SqlProvider provider = new SqlProvider(sorgu);
             SqlDataReader veriOkuyucu = provider.ExecuteReaderOlustur();
             if (veriOkuyucu.HasRows)
             {
-                zimmetTuruListe = new List<ZimmetTuruDTO>();
+                depoListe = new List<DepoDTO>();
                 while (veriOkuyucu.Read())
                 {
-                    zimmetTuruListe.Add(new ZimmetTuruDTO()
+                    depoListe.Add(new DepoDTO()
                     {
-                        ZimmetTuruID = veriOkuyucu.GetInt32(0),
-                        ZimmetTuru = veriOkuyucu.GetString(1)
+                        DepoID = veriOkuyucu.GetInt32(0),
+                        DepoAdi = veriOkuyucu.GetString(1),
+                        Sirket = new SirketDTO() { SirketID = veriOkuyucu.GetInt32(2) }
                     });
                 }
-                return zimmetTuruListe;
+                return depoListe;
             }
             else
             {

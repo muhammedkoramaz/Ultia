@@ -15,7 +15,6 @@ namespace Ultia.DAL.DAL
         List<EkipDTO> ekipListe;   
         public List<EkipDTO> VeriCek()
         {
-
             string sorgu = $"select EkipID,EkipAdi,SirketID from Ekip where AktifMi = 'true'";
             SqlProvider provider = new SqlProvider(sorgu);
             SqlDataReader veriOkuyucu = provider.ExecuteReaderOlustur();

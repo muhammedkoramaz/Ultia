@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ultia.DAL.IRepositories;
 using Ultia.DTO;
 using Ultia.DTO.DTOs;
@@ -15,14 +12,21 @@ namespace Ultia.DAL.DAL
     {
         List<EkipZimmetDTO> ekipZimmetler;
 
+        /// <summary>
+        /// Bir ekibe zimmet atıldığında insert yapacak fonksiyon.
+        /// </summary>
+        /// <param name="eklenecekVeri"></param>
+        /// <returns></returns>
         public DonenSonuc Ekle(EkipZimmetDTO eklenecekVeri)
         {
-            string sorgu = "insert into EkipZimmet(EkipID,ZimmetID) values (@ekipID,@zimmetID)\r\n";
+            string sorgu = "insert into EkipZimmet(EkipID,ZimmetID,AktifMi) values (@ekipID,@zimmetID,@aktifMi)\r\n";
             SqlProvider provider = new SqlProvider(sorgu);
-            SqlParameter[] sqlParameters = new SqlParameter[2];
+            SqlParameter[] sqlParameters = new SqlParameter[3];
 
             sqlParameters[0] = new SqlParameter("@kullaniciID", eklenecekVeri.Ekip.EkipID);
             sqlParameters[1] = new SqlParameter("@zimmetID", eklenecekVeri.Zimmet.ZimmetID);
+            sqlParameters[2] = new SqlParameter("@aktifMi", true);
+
             provider.ParametreEkle(sqlParameters);
 
             int etkilenenSatirSayisi = provider.ExecuteNonQueryOlustur();

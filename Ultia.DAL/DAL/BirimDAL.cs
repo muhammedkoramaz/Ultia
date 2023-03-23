@@ -13,6 +13,10 @@ namespace Ultia.DAL.DAL
     public class BirimDAL : IVeriCek<BirimDTO>
     {
         List<BirimDTO> birimListe;
+        /// <summary>
+        /// Veritabanından birim tablosundaki verileri çeken fonksiyon.
+        /// </summary>
+        /// <returns></returns>
         public List<BirimDTO> VeriCek()
         {
             string sorgu = "select BirimID, BirimAdi from Birim where AktifMi = 'true'";

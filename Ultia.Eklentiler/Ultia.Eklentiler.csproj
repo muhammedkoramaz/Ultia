@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0B588FFA-E31D-45F5-AE30-916980B14F79}</ProjectGuid>
+    <ProjectGuid>{611B45A5-40E1-4522-B5C9-F1151647A799}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ultia.DAL</RootNamespace>
-    <AssemblyName>Ultia.DAL</AssemblyName>
+    <RootNamespace>Ultia.Eklentiler</RootNamespace>
+    <AssemblyName>Ultia.Eklentiler</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,42 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\BirimDAL.cs" />
-    <Compile Include="DAL\DepoDAL.cs" />
-    <Compile Include="DAL\EkipDAL.cs" />
-    <Compile Include="DAL\EkipZimmetDAL.cs" />
-    <Compile Include="DAL\FiyatDAL.cs" />
-    <Compile Include="DAL\KullaniciDAL.cs" />
-    <Compile Include="DAL\KullaniciZimmetDAL.cs" />
-    <Compile Include="DAL\MarkaDAL.cs" />
-    <Compile Include="DAL\ModelDAL.cs" />
-    <Compile Include="DAL\MusteriVarlikDAL.cs" />
-    <Compile Include="DAL\ParaBirimiDAL.cs" />
-    <Compile Include="DAL\UrunTipiDAL.cs" />
-    <Compile Include="DAL\VarlikDAL.cs" />
-    <Compile Include="DAL\VarlikDepoDAL.cs" />
-    <Compile Include="DAL\ZimmetDAL.cs" />
-    <Compile Include="DAL\ZimmetNedeniDAL.cs" />
-    <Compile Include="DAL\ZimmetTuruDAL.cs" />
-    <Compile Include="IRepositories\ISil.cs" />
-    <Compile Include="IRepositories\IEkle.cs" />
-    <Compile Include="IRepositories\ITekVeriCek.cs" />
-    <Compile Include="IRepositories\IVeriCek.cs" />
-    <Compile Include="IRepositories\IGuncelle.cs" />
-    <Compile Include="IRepositories\IVeriCekID.cs" />
-    <Compile Include="IRepositories\IVeriCekKullanici.cs" />
+    <Compile Include="Dogrulamalar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Ultia.DTO\Ultia.DTO.csproj">
-      <Project>{60186A78-D10F-4F89-BA73-DF8148ACBDB5}</Project>
-      <Name>Ultia.DTO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ultia.Provider\Ultia.Provider.csproj">
-      <Project>{27BFE59C-2F45-4155-9682-850C6A9C0C9D}</Project>
-      <Name>Ultia.Provider</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

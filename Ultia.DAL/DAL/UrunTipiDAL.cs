@@ -1,10 +1,6 @@
 ﻿using AdoSample.Provider;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ultia.DAL.IRepositories;
 using Ultia.DTO.DTOs;
 
@@ -13,6 +9,10 @@ namespace Ultia.DAL.DAL
     public class UrunTipiDAL : IVeriCek<UrunTipiDTO>
     {
         List<UrunTipiDTO> urunTipiList;
+        /// <summary>
+        /// Veritabanından Uruntipi tablosunu çeken fonksiyon.
+        /// </summary>
+        /// <returns></returns>
         public List<UrunTipiDTO> VeriCek()
         {
             string sorgu = $"select UrunTipiID,UrunTipi from UrunTipi where AktifMi = 'True'";

@@ -1,10 +1,6 @@
 ﻿using AdoSample.Provider;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ultia.DAL.IRepositories;
 using Ultia.DTO.DTOs;
 
@@ -13,6 +9,11 @@ namespace Ultia.DAL.DAL
     public class ModelDAL : IVeriCekID<ModelDTO>
     {
         List<ModelDTO> modelListe;
+        /// <summary>
+        /// Veritabanından Model tablosunu çeken fonksiyon.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<ModelDTO> VeriCek(int id)
         {
             string sorgu = $"select model.ModelID,model.ModelAd,marka.MarkaID, marka.MarkaAdi from Model model join Marka marka on marka.MarkaID=model.MarkaID where model.AktifMi='true' and marka.AktifMi = 'true' and model.MarkaID = {id}";

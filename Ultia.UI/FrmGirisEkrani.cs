@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ultia.DAL.DAL;
-using Ultia.DTO;
 using Ultia.DTO.DTOs;
 
 namespace Ultia.UI
@@ -26,7 +18,11 @@ namespace Ultia.UI
             SifreGoster();
 
         }
-
+        /// <summary>
+        /// Giriş yap butonuna tıklandıgında veritabanında kontrol yapıp uygulamadan içeri alan fonksiyon.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGirisYap_Click(object sender, EventArgs e)
         {
             KullaniciDAL kullanici = new KullaniciDAL();

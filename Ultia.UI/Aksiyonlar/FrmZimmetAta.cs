@@ -31,6 +31,9 @@ namespace Ultia.UI
         {
             FormuDoldur();
         }
+        /// <summary>
+        /// Form elementlerini dolduran fonksiyon.
+        /// </summary>
         public void FormuDoldur()
         {
             ZimmetNedeniDAL zimmetNedeniDAL = new ZimmetNedeniDAL();
@@ -39,6 +42,11 @@ namespace Ultia.UI
             cmbZimmetNedeni.Items.AddRange(zimmetNedeniDAL.VeriCek().ToArray());
             cmbZimmetTuru.Items.AddRange(zimmetTuruDAL.VeriCek().ToArray());
         }
+        /// <summary>
+        /// Zimmet ata butonuna basıldığı zaman zimmet türüne göre kişi ya da ekibe zimmet atayan fonksiyon.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnZimmetAta_Click(object sender, EventArgs e)
         {
             ZimmetNedeniDTO secilenZimmetNedeni = cmbZimmetNedeni.SelectedItem as ZimmetNedeniDTO;
@@ -47,11 +55,13 @@ namespace Ultia.UI
             KullaniciDAL kullaniciDAL = new KullaniciDAL();
             VarlikDepoDAL varlikDepoDAL = new VarlikDepoDAL();
             ZimmetDAL zimmetDAL = new ZimmetDAL();
-
+            KullaniciZimmetDAL kullaniciZimmetDAL = new KullaniciZimmetDAL();
+            EkipZimmetDAL ekipZimmetDAL = new EkipZimmetDAL();
+            EkipDAL ekipDAL = new EkipDAL();
             List<KullaniciDTO> kullaniciListe = kullaniciDAL.VeriCek();
 
             VarlikDepoDTO cekilenDepoVeri = varlikDepoDAL.TekVeriCek(varlik.VarlikID);
-            //todo ekibe göre 
+
             ZimmetDTO zimmet = new ZimmetDTO()
             {
                 ZimmetNedeni = new ZimmetNedeniDTO() { ZimmetNedeniID = secilenZimmetNedeni.ZimmetNedeniID },
@@ -65,11 +75,28 @@ namespace Ultia.UI
             };
             DonenSonuc sonuc = zimmetDAL.Ekle(zimmet);
             MessageBox.Show(sonuc.DonusMesaji);
-            ZimmetDTO zimmett = zimmetDAL.TekVeriCek(cekilenDepoVeri.VarlikDepoID);
-            MessageBox.Show(zimmett.ZimmetID.ToString());
+            ZimmetDTO zimmetID = zimmetDAL.TekVeriCek(cekilenDepoVeri.VarlikDepoID);
+            MessageBox.Show(zimmetID.ZimmetID.ToString());
+            if (cmbZimmetTuru.SelectedItem.ToString() == "Kişi")
+            {
+                KullaniciZimmetDTO kullaniciZimmet = new KullaniciZimmetDTO() { Zimmet = zimmetID, Kullanici = cmbZimmetSahibi.SelectedItem as KullaniciDTO };
+                DonenSonuc kullaniciSonuc = kullaniciZimmetDAL.Ekle(kullaniciZimmet);
+                MessageBox.Show(kullaniciSonuc.DonusMesaji);
+            }
+            else
+            {
+                EkipZimmetDTO ekipZimmet = new EkipZimmetDTO() { Zimmet = zimmetID, Ekip = cmbZimmetSahibi.SelectedItem as EkipDTO };
+                DonenSonuc ekipSonuc = ekipZimmetDAL.Ekle(ekipZimmet);
+                MessageBox.Show(ekipSonuc.DonusMesaji);
+            }
 
         }
 
+        /// <summary>
+        /// Zimmet türü değişince Kullanıcı ya da Ekibe göre zimmet atayan fonksiyon.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbZimmetTuru_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbZimmetTuru.SelectedItem.ToString() == "Kişi")

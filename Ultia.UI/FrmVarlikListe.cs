@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ultia.DAL.DAL;
 using Ultia.DTO.DTOs;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Ultia.UI
 {
@@ -152,12 +146,13 @@ namespace Ultia.UI
         {
 
         }
-
+        /// <summary>
+        /// Güncelle butonuna tıklandığında ilgili alanlardaki veriler ile tablo güncelleniyor.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            //SelectedItems[0] yani seçtiğimiz itemsin indeksini bize döndürür. Bir adet değer seçtiğimizden dolayı 0 veririz.
-            //SubItems ise bize hangi sütunu seçtiğimizi belirtir. 1 ile adı soyadı bilgisini geri döndürür.
-
             // Seçilen itemin ID'sini alıyoruz.
             int selectedItemId = int.Parse(lvVarliklar.SelectedItems[0].SubItems[0].Text);
 

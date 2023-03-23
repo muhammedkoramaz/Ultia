@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ultia.DAL.DAL;
 using Ultia.DTO;
@@ -29,7 +22,11 @@ namespace Ultia.UI.AksiyonEkranlar
         {
 
         }
-
+        /// <summary>
+        /// Ürün satışı yapan fonksiyon.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDosyaEkle_Click(object sender, EventArgs e)
         {
             MusteriVarlikDAL musteriVarlikDAL = new MusteriVarlikDAL();

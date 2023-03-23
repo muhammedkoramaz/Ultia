@@ -1,20 +1,15 @@
 ﻿using AdoSample.Provider;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using Ultia.DAL.IRepositories;
 using Ultia.DTO;
 using Ultia.DTO.DTOs;
 
 namespace Ultia.DAL.DAL
 {
-    public class KullaniciDAL : IVeriCekKullanici<KullaniciDTO>,IVeriCek<KullaniciDTO>
+    public class KullaniciDAL : IVeriCekKullanici<KullaniciDTO>, IVeriCek<KullaniciDTO>
     {
-        List<KullaniciDTO> kullaniciListe;  
+        List<KullaniciDTO> kullaniciListe;
         /// <summary>
         /// Giriş yapacak kullanıcının bilgileri veritabanındaki kullanıcılar ile karşılaştırtılıyor ve eğer var ise kullanıcı classı dolduruluyor. Yok ise null dönüyor.
         /// </summary>
@@ -39,7 +34,7 @@ namespace Ultia.DAL.DAL
                         KullaniciAdi = veriOkuyucu.GetString(1),
                         AdSoyad = veriOkuyucu.GetString(2),
                         Rol = new RolDTO() { RolAdi = veriOkuyucu.GetString(3) },
-                        Ekip = new EkipDTO() { EkipAdi = veriOkuyucu.GetString(4), EkipID=veriOkuyucu.GetInt32(5)},
+                        Ekip = new EkipDTO() { EkipAdi = veriOkuyucu.GetString(4), EkipID = veriOkuyucu.GetInt32(5) },
                     };
                 }
                 return kullanici;
@@ -50,9 +45,13 @@ namespace Ultia.DAL.DAL
             }
         }
 
+        /// <summary>
+        /// Veritabanından Kullanıcı tablosunu çeken fonksiyon.
+        /// </summary>
+        /// <returns></returns>
         public List<KullaniciDTO> VeriCek()
         {
-            string sorgu = $"select KullaniciID,KullaniciAdi,AdSoyad,Email,RoleID,EkipID from Kullanici where AktifMi = 'true'\r\n";
+            string sorgu = "select KullaniciID,KullaniciAdi,AdSoyad,Email,RoleID,EkipID from Kullanici where AktifMi = 'true'";
             SqlProvider provider = new SqlProvider(sorgu);
             SqlDataReader veriOkuyucu = provider.ExecuteReaderOlustur();
             if (veriOkuyucu.HasRows)
@@ -66,8 +65,8 @@ namespace Ultia.DAL.DAL
                         KullaniciAdi = veriOkuyucu.GetString(1),
                         AdSoyad = veriOkuyucu.GetString(2),
                         Email = veriOkuyucu.GetString(3),
-                        Rol = new RolDTO() { RolID = veriOkuyucu.GetInt32(4),},
-                        Ekip = new EkipDTO() { EkipID= veriOkuyucu.GetInt32(5)},
+                        Rol = new RolDTO() { RolID = veriOkuyucu.GetInt32(4), },
+                        Ekip = new EkipDTO() { EkipID = veriOkuyucu.GetInt32(5) },
                     });
                 }
                 return kullaniciListe;

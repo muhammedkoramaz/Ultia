@@ -1,10 +1,6 @@
 ﻿using AdoSample.Provider;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ultia.DAL.IRepositories;
 using Ultia.DTO.DTOs;
 
@@ -12,7 +8,11 @@ namespace Ultia.DAL.DAL
 {
     public class ParaBirimiDAL : IVeriCek<ParaBirimiDTO>
     {
-        List<ParaBirimiDTO> paraBirimiList;    
+        List<ParaBirimiDTO> paraBirimiList;
+        /// <summary>
+        /// Veritabanından ParaBirimi tablosunu çeken fonksiyon.
+        /// </summary>
+        /// <returns></returns>
         public List<ParaBirimiDTO> VeriCek()
         {
             string sorgu = $"select ParaBirimiID, ParaBirimi from ParaBirimi where AktifMi = 'True'";

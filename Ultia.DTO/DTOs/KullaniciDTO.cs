@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ultia.DTO.DTOs
+﻿namespace Ultia.DTO.DTOs
 {
-    public class KullaniciDTO:UstDTO
+    public class KullaniciDTO : UstDTO
     {
         public int KullaniciID { get; set; }
         public string KullaniciAdi { get; set; }

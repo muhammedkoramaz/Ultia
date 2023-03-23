@@ -1,14 +1,7 @@
-﻿using AdoSample.Provider;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 using Ultia.DTO.DTOs;
+using Ultia.UI.Raporlar;
 
 namespace Ultia.UI
 {
@@ -24,9 +17,6 @@ namespace Ultia.UI
         {
 
         }
-
-
-
         /// <summary>
         /// Ekran ortasındaki panelde ekranlar açma fonksiyonu.
         /// </summary>
@@ -46,14 +36,6 @@ namespace Ultia.UI
             form.Show();
         }
 
-        private void btnSss_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void btnDuyuru_Click(object sender, EventArgs e)
-        {
-        }
-
         private void pbDepoYonetimi_Click(object sender, EventArgs e)
         {
             PanelFormAc(new FrmVarlikListe(lblKullanici.Tag as KullaniciDTO));
@@ -68,6 +50,18 @@ namespace Ultia.UI
         private void pbSSS_Click(object sender, EventArgs e)
         {
             PanelFormAc(new FrmSss());
+
+        }
+
+        private void btnRapor_Click(object sender, EventArgs e)
+        {
+            PanelFormAc(new FrmRapor1());
+
+        }
+
+        private void btnRaporIki_Click(object sender, EventArgs e)
+        {
+            PanelFormAc(new FrmRapor2());
 
         }
     }

@@ -1,10 +1,5 @@
 ﻿using AdoSample.Provider;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ultia.DAL.IRepositories;
 using Ultia.DTO;
 using Ultia.DTO.DTOs;
@@ -13,6 +8,11 @@ namespace Ultia.DAL.DAL
 {
     public class ZimmetDAL : ITekVeriCek<ZimmetDTO>, IEkle<ZimmetDTO>
     {
+        /// <summary>
+        /// Veritabanına Zimmet ekleyen fonksiyon.
+        /// </summary>
+        /// <param name="eklenecekVeri"></param>
+        /// <returns></returns>
         public DonenSonuc Ekle(ZimmetDTO eklenecekVeri)
         {
             string sorgu = "insert into Zimmet(ZimmetNedeniID,ZimmetTuruID,BaslangicTarihi,Aciklama,OlusturanKisiID,VarlikDepoID,AktifMi,BitisTarihi)" +
@@ -39,7 +39,11 @@ namespace Ultia.DAL.DAL
                 DonusTipi = etkilenenSatirSayisi > 0,
             };
         }
-
+        /// <summary>
+        /// Veritabanından tek bir zimmet getiren fonksiyon.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ZimmetDTO TekVeriCek(int id)
         {
             string sorgu = $"select  ZimmetID from Zimmet where VarlikDepoID = {id} and AktifMi = 'true'";
@@ -52,7 +56,7 @@ namespace Ultia.DAL.DAL
                 while (veriOkuyucu.Read())
                 {
                     zimmet.ZimmetID = veriOkuyucu.GetInt32(0);
-                    
+
                 }
             }
             return zimmet;
